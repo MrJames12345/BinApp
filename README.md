@@ -1,13 +1,14 @@
 # BinApp
 Bin app for iOS and Android.
 
-
 # Architecture
 
 ## Front-End
-Flutter 
+Flutter
 
 ## Back-End
 Google Firebase
 
 ## SMS 
+
+## Authentication 
