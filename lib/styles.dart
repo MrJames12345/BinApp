@@ -22,7 +22,6 @@ class BM_Components {
   static TextFormField textField({
       required String placeholder,
       required Function(String)? onChanged,
-      required bool hasError,
       bool? disabled
     }) {
       return TextFormField(
@@ -37,7 +36,7 @@ class BM_Components {
           )
         ),
         onChanged: onChanged,
-        style: GoogleFonts.livvic(
+        style: GoogleFonts.roboto(
           fontSize: 16.0,
           fontWeight: FontWeight.bold,
           color: BM_Colours.black
@@ -47,12 +46,13 @@ class BM_Components {
 
   // Checkbox
   static Checkbox checkbox({
-    required bool checked
+    required bool checked,
+    required Function(bool?)? onChanged,
   }) {
     return Checkbox(
       value: checked,
       activeColor: BM_Colours.secondary,
-      onChanged: (bool? newChecked) { print(newChecked); },
+      onChanged: onChanged,
     );
   }
 

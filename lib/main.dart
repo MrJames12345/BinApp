@@ -34,14 +34,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
 
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
+  // State
+  bool sendSmsChecked = false;
 
+  // Build
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -66,6 +63,28 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: [
 
+                        // First Name
+                        SizedBox(
+                          width: screenWidth,
+                          height: 60,
+                          child: BM_Components.textField(
+                            placeholder: "First Name",
+                            onChanged: (newValue) { print(newValue); }
+                          ),
+                        ),
+
+                        // Last Name
+                        SizedBox(
+                          width: screenWidth,
+                          height: 60,
+                          child: BM_Components.textField(
+                            placeholder: "Last Name",
+                            onChanged: (newValue) { print(newValue); }
+                          ),
+                        ),
+
+                        SizedBox(height: 20),
+
                         // Send SMS on bin drop-off confirmation
                         SizedBox(
                           width: screenWidth,
@@ -73,12 +92,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text("First Name",
+                              const Text("Send SMS on bin drop-off confirmation",
                                   style: TextStyle(
-                                  fontSize: 16.0,
+                                  fontSize: 14.0,
                                   fontWeight: FontWeight.w500,
                                   color: BM_Colours.black)),
-                              BM_Components.checkbox(checked: false)
+                              BM_Components.checkbox(checked: sendSmsChecked, onChanged: (newChecked) { setState(() { sendSmsChecked = newChecked ?? false; }); })
                             ],
                           ),
                         ),
